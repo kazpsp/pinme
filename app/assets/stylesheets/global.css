@@ -1,0 +1,21 @@
+#map-frame{
+}
+
+#map-canvas{
+	position: fixed !important;
+	width: 100%;
+	height: 100%;
+	
+	overflow: hidden;
+}
+
+.navbar{
+	margin: 0;
+}
+
+#sharify{
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	width: 550px;
+}

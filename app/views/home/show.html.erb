@@ -1,0 +1,26 @@
+<div id="map-canvas"></div>
+<script>
+	directionsDisplay = new google.maps.DirectionsRenderer();
+	var mapOptions = {
+	    zoom: 17,
+	    navigationControl: false, 
+	    streetViewControl:false,
+	    zoomControl: false,
+	    scaleControl: false,
+        navigationControl: false,
+        panControl: false,
+        mapTypeControl: false,
+        streetViewControl: false,
+	    center: new google.maps.LatLng(<%=@lat%>,<%=@lng%>),
+	    mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+    directionsDisplay.setMap(map);
+    
+    marker  = new google.maps.Marker({
+    	title: "<%=@name%>" ,
+    	position: map.getCenter(),
+		map: map
+    });
+	
+</script>

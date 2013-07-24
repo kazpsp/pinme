@@ -1,0 +1,50 @@
+
+ <div id="map-canvas"></div>
+
+<script>
+	var params;
+	directionsDisplay = new google.maps.DirectionsRenderer();
+	var mapOptions = {
+	    zoom: 15,
+	    navigationControl: false, 
+	    streetViewControl:false,
+	    zoomControl: false,
+	    scaleControl: false,
+	    panControl: false,
+        mapTypeControl: false,
+        navigationControl: false,
+        streetViewControl: false,
+	    center: new google.maps.LatLng(10.9782122, -74.8039205),
+	    mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+    directionsDisplay.setMap(map);
+    
+    marker  = new google.maps.Marker({
+    	position: map.getCenter(),
+		map: map
+    });
+
+	function placeMarker(location) {
+  	    marker.setPosition(location);
+	}
+
+google.maps.event.addListener(map, 'click', function(event) {
+	placeMarker(event.latLng);
+	//$("#sharify").val('http://maps.google.com/?ie=UTF8&hq=&z=40&q='+marker.getPosition().lat()+','+marker.getPosition().lng()+'&ll='+marker.getPosition().lat()+','+marker.getPosition().lng());
+    $("#sharify").val('http://maps.google.com/?ie=UTF8&hq=&z=40&q='+marker.getPosition().lat()+','+marker.getPosition().lng()+'&ll='+marker.getPosition().lat()+','+marker.getPosition().lng());
+    params='lat='+marker.getPosition().lat()+'&lng='+marker.getPosition().lng();
+    
+});
+
+google.maps.event.addListener(marker, 'click', function() {
+    var name = prompt("Name your Pin: ", "Pin name");
+    params='lat='+marker.getPosition().lat()+'&lng='+marker.getPosition().lng()+'&name='+name;
+});
+
+$("#shareButton").click(function() {
+	window.open('/home/show?'+params);
+});
+
+
+</script>

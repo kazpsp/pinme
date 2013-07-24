@@ -1,0 +1,27 @@
+<h1>Listing pins</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Lat</th>
+    <th>Lng</th>
+    <th>User</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% current_user.pins.each do |pin| %>
+  <tr>
+    <td><%= pin.name %></td>
+    <td><%= pin.lat %></td>
+    <td><%= pin.lng %></td>
+    <td><%= pin.user_id %></td>
+    <td><%= link_to 'Show', home_show_path(:lat => pin.lat, :lng => pin.lng, :name => pin.name) %></td>
+    <td><%= link_to 'Destroy', pin, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+

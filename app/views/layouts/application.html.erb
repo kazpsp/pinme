@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pinner</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD8lC-eyRvx55qsloJlURKfvLmoo-G5KpU&sensor=true"></script>
+</head>
+<body>
+
+<div class="navbar navbar-inverse">
+  <div class="navbar-inner">
+    
+    <%=link_to "Pinner", root_path, :class => "brand" %>
+    <ul class="nav">
+      <li> <%=link_to "Home", root_path%></li>
+      <li><%=link_to "Your Pins", pins_path%></li>
+      <form class="navbar-search pull-left" action="">
+      	<input type="text" id="sharify" class="search-query span2" placeholder="Search">
+      </form>
+      <li><a id="shareButton" target="_blank" href="#">Share</a></li>
+    </ul>
+  </div>
+</div>
+
+<%= yield %>
+
+</body>
+</html>
