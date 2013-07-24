@@ -10,7 +10,7 @@
 </head>
 <body>
 
-<div class="navbar navbar-inverse">
+<div class="navbar navbar-inverse navbar-fixed-top">
   <div class="navbar-inner">
     
     <%=link_to "Pinner", root_path, :class => "brand" %>
@@ -22,10 +22,15 @@
       </form>
       <li><a id="shareButton" target="_blank" href="#">Share</a></li>
     </ul>
+    
+    <ul class="nav pull-right">
+    	<li><a target="_blank" href="http://www.twitter.com/kazpsp">@kazpsp</a></li>
+    </ul>
   </div>
 </div>
 
+<div class="marginator">
 <%= yield %>
-
+</div>
 </body>
 </html>
